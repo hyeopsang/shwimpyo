@@ -1,7 +1,5 @@
 import './App.css';
 
-function App() {
-  return <></>;
+export default function App() {
+  return <div>쉼표</div>;
 }
-
-export default App;
