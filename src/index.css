@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,8 +8,26 @@
   --color-black: #525252;
 }
 
+@layer components {
+  .marker-highlight {
+    @apply relative;
+  }
+
+  .marker-highlight:before {
+    @apply content-[''] 
+           absolute 
+           w-full 
+           px-[0.25em]  
+           left-[-0.25em]
+           top-[0.1em]
+           h-[1em]
+           z-[-1]    
+           bg-[#ff6db7];
+    @apply bg-[url(/assets/marker-highlight.svg)];
+  }
+}
 :root {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
