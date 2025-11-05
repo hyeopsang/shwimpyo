@@ -6,6 +6,9 @@
 @theme {
   --color-emerald: #79a2a4;
   --color-black: #525252;
+  --breakpoint-xs: 375px;
+  --breakpoint-2xl: 800px;
+  --breakpoint-3xl: 1200px;
 }
 
 @layer components {
@@ -157,7 +160,23 @@ body {
   height: 100%;
   background-color: #fff;
 }
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+#paper {
+  color: #fff;
+  font-size: 20px;
+}
+#font {
+  font-family: 'Nanum Pen Script', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+#text {
+  color: #222;
+  font-family: 'Nanum Pen Script', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 40px;
+  background-image: url('./assets/note.svg');
+  background-repeat: repeat;
 }
