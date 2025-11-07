@@ -1,6 +1,6 @@
-import {Link} from 'react-router';
 import type {ComponentType} from 'react';
-
+import {Link, useLocation} from 'react-router';
+import {cn} from '@/utils/style';
 interface MenuButtonsProps {
   path: string;
   icon: ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -12,13 +12,19 @@ export default function MenuButton({
   icon: Icon,
   label,
 }: MenuButtonsProps) {
+  const location = useLocation();
+  const isActive = location.pathname === path;
   return (
     <Link
       to={path}
-      className="w-full py-2 px-4 flex items-center gap-5 rounded-[10px] bg-transparent  hover:bg-[#eaebea]"
+      aria-current={isActive ? 'page' : undefined}
+      className={cn(
+        'w-full px-2 py-1.5 flex items-center gap-5 rounded-md hover:bg-slate-100 active:bg-slate-100 text-slate-900 dark:text-white',
+        {'bg-slate-100': isActive}
+      )}
     >
-      <Icon height={18} />
-      <span className="text-[18px] font-medium text-[#4C4B4A]">{label}</span>
+      <Icon width={20} />
+      <span className="text-[14px] font-medium">{label}</span>
     </Link>
   );
 }

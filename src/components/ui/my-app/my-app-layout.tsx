@@ -26,16 +26,10 @@ export default function MyAppLayout() {
   }, []);
 
   return (
-    <div className="w-full flex min-h-screen bg-[#FAFAFA]">
-      <AppSideBar onClose={onClose} sidebar={sidebar} />
-      <div
-        className={`flex-1 relative transition-all duration-300 ${
-          sidebar ? 'pl-[300px]' : 'pl-0'
-        }`}
-      >
-        {/* ✅ Header에 props 전달 */}
-        <Header sidebar={sidebar} onOpen={onOpen} scrolled={scrolled} />
-        <main className="max-w-[1200px] w-full h-dvh mx-auto bg-amber-200">
+    <div className="w-full flex min-h-screen  bg-[#FAFAFA]">
+      <div className="max-w-[1200px] w-full h-dvh flex mx-auto overflow-hidden">
+        <AppSideBar onClose={onClose} sidebar={sidebar} />
+        <main className="flex-1 w-full h-full mx-auto bg-amber-200 border-x border-slate-200">
           <Outlet />
         </main>
       </div>
