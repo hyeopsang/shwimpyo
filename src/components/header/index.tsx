@@ -13,9 +13,9 @@ export default function Header({sidebar, onOpen, scrolled}: HeaderProps) {
   return (
     <header
       className={cn(
-        'sticky top-0 w-full py-3.5 transition-all duration-300 z-50 border-b border-slate-200 dark:border-white/25',
+        'sticky top-0 w-full py-3.5 transition-all duration-100 z-50',
         {
-          'bg-[#FAFAFA]/50 backdrop-blur-[25px]': scrolled,
+          'bg-[#FAFAFA]/75 backdrop-blur-[25px] dark:bg-slate-900/75': scrolled,
           'bg-[#FAFAFA] dark:bg-slate-900': !scrolled,
         }
       )}
@@ -33,7 +33,7 @@ export default function Header({sidebar, onOpen, scrolled}: HeaderProps) {
             className={cn(
               'px-4 py-2 flex gap-2 items-center rounded-full transition-colors duration-200',
               'bg-[#FFD9ED] text-[#FF0088] dark:bg-[#FF0088] dark:text-white',
-              'hover:bg-[#FFB3D9] hover:text-[#E60073]'
+              'hover:bg-[#FFB3D9] hover:text-[#E60073] dark:hover:bg-[#ff47a3]'
             )}
           >
             <Add width={24} height={24} />
