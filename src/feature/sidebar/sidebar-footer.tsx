@@ -2,9 +2,11 @@ import Logout from '@/assets/logout.svg?react';
 
 export default function SideBarFooter() {
   return (
-    <section className="w-full flex items-center h-fit px-5 py-5 gap-4">
-      <Logout height={18} />
-      <span className="text-[18px] font-medium text-[#4C4B4A]">로그아웃</span>
+    <section className="w-full pt-4">
+      <button className="w-full flex items-center px-2 py-1.5 rounded-md hover:bg-slate-200 active:bg-slate-200 gap-4 text-slate-900 dark:text-white">
+        <Logout width={20} />
+        <span className="text-[14px] font-normal">로그아웃</span>
+      </button>
     </section>
   );
 }
