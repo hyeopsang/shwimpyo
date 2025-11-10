@@ -1,25 +1,35 @@
-import SideBarFooter from '@/feature/sidebar/sidebar-footer';
-import SideBarHeader from '@/feature/sidebar/sidebar-header';
-import SideBarMenuList from '@/feature/sidebar/sidebar-menu-list';
+import SidebarFooter from './sidebar-footer';
+import SidebarHeader from './sidebar-header';
+import SidebarMenuList from './sidebar-menu-list';
 import {cn} from '@/utils/style';
 
 interface AppSideBarProps {
-  onClose: () => void;
+  toggleSidebar: () => void;
   sidebar: boolean;
 }
 
-export default function AppSideBar({onClose, sidebar}: AppSideBarProps) {
+export default function AppSidebar({toggleSidebar, sidebar}: AppSideBarProps) {
   return (
     <aside
+      id="sidebar"
+      role="navigation"
       className={cn(
-        'w-[270px] h-dvh py-5 px-6 flex flex-col bg-white dark:bg-slate-800 divide-y divide-slate-200 border-l border-slate-200 dark:border-white/25 dark:divide-white/25 transition-all duration-200 z-50 sticky top-0 left-0',
-        {'translate-x-0': sidebar},
-        {'-translate-x-full w-0 p-0 overflow-hidden *:opacity-0': !sidebar}
+        'h-dvh pb-5 px-6 bg-white dark:bg-slate-800 divide-y divide-slate-200 border-l border-slate-200 dark:border-0 dark:divide-white/25 transition-all duration-300 z-50 sticky top-0 left-0 overflow-hidden',
+        sidebar
+          ? 'translate-x-0 w-full md:w-[270px]'
+          : '-translate-x-full w-0 p-0 border-0'
       )}
     >
-      <SideBarHeader onClose={onClose} />
-      <SideBarMenuList />
-      <SideBarFooter />
+      <div
+        className={cn(
+          'w-full h-full flex flex-col',
+          !sidebar && 'opacity-0 pointer-events-none'
+        )}
+      >
+        <SidebarHeader toggleSidebar={toggleSidebar} sidebar={sidebar} />
+        <SidebarMenuList />
+        <SidebarFooter />
+      </div>
     </aside>
   );
 }

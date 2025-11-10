@@ -1,32 +1,37 @@
 import {cn} from '@/utils/style';
 import Add from '@/assets/add.svg?react';
 import DarkModeToggle from './dark-mode-toggle';
-import SidebarTrigger from './sidebar-trigger';
+import SidebarTrigger from '@/shared/sidebar-trigger';
 
 interface HeaderProps {
   sidebar: boolean;
-  onOpen: () => void;
+  toggleSidebar: () => void;
   scrolled: boolean;
 }
 
-export default function Header({sidebar, onOpen, scrolled}: HeaderProps) {
+export default function Header({
+  sidebar,
+  toggleSidebar,
+  scrolled,
+}: HeaderProps) {
   return (
     <header
       className={cn(
-        'sticky top-0 w-full py-3.5 transition-all duration-100 z-50',
-        {
-          'bg-[#FAFAFA]/75 backdrop-blur-[25px] dark:bg-slate-900/75': scrolled,
-          'bg-[#FAFAFA] dark:bg-slate-900': !scrolled,
-        }
+        'sticky top-0 w-full h-fit py-3.5 transition-all duration-100 z-50',
+        scrolled
+          ? 'bg-[#FAFAFA]/75 backdrop-blur-[25px] dark:bg-slate-900/75'
+          : 'bg-[#FAFAFA] dark:bg-slate-900'
       )}
     >
       <div
-        className={cn('w-full max-w-[1200px] mx-auto flex items-center px-5', {
-          'justify-end': sidebar,
-          'justify-between': !sidebar,
-        })}
+        className={cn(
+          'w-full max-w-[1200px] mx-auto flex items-center px-5',
+          sidebar ? 'justify-end' : 'justify-between'
+        )}
       >
-        {!sidebar && <SidebarTrigger onOpen={onOpen} />}
+        {!sidebar && (
+          <SidebarTrigger isOpen={sidebar} onToggle={toggleSidebar} />
+        )}
         <div className="flex items-center gap-2">
           <DarkModeToggle />
           <button

@@ -1,23 +1,18 @@
-import TriggerIcon from '@/assets/out.svg?react';
+import SidebarTrigger from '@/shared/sidebar-trigger';
 interface SidebarHeaderProps {
-  onClose: () => void;
+  toggleSidebar: () => void;
+  sidebar: boolean;
 }
-export default function SideBarHeader({onClose}: SidebarHeaderProps) {
+export default function SidebarHeader({
+  toggleSidebar,
+  sidebar,
+}: SidebarHeaderProps) {
   return (
-    <section className="w-full flex items-center justify-between pb-5">
+    <header className="w-full flex items-center justify-between py-3.5">
       <span className="text-xl font-bold text-[#4C4B4A] dark:text-white">
-        心쓴
+        On:Mind
       </span>
-      <button
-        onClick={onClose}
-        className="transition-colors duration-200 p-2 rounded-full hover:bg-slate-200 dark:hover:bg-white/25"
-      >
-        <TriggerIcon
-          width={24}
-          height={24}
-          className="text-slate-900 dark:text-white"
-        />
-      </button>
-    </section>
+      <SidebarTrigger onToggle={toggleSidebar} isOpen={sidebar} />
+    </header>
   );
 }
