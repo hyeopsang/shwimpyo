@@ -16,7 +16,7 @@ export default function SidebarMenuList({
 }) {
   return (
     <nav
-      className="flex flex-col w-full flex-1 py-5 gap-2"
+      className="flex flex-col w-full flex-1 py-6 gap-2"
       aria-label="사이드바 메뉴"
     >
       {menuItems.map((item) => (

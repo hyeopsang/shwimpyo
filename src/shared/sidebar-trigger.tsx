@@ -1,4 +1,4 @@
-import TriggerIcon from '@/assets/out.svg?react';
+import TriggerIcon from '@/assets/trigger.svg?react';
 import {cn} from '@/utils/style';
 
 interface SidebarTriggerProps {
@@ -18,12 +18,9 @@ export default function SidebarTrigger({
       className="transition-colors duration-200 p-2 rounded-full hover:bg-slate-200 dark:hover:bg-white/25"
     >
       <TriggerIcon
-        width={24}
-        height={24}
-        className={cn(
-          'text-slate-900 dark:text-white',
-          isOpen ? 'rotate-0' : 'rotate-180'
-        )}
+        width={20}
+        height={20}
+        className={cn('text-slate-900 dark:text-white')}
       />
     </button>
   );
