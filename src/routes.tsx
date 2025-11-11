@@ -4,6 +4,8 @@ import MyAppLayout from './components/ui/my-app/my-app-layout';
 import DashboardPage from './pages/dashboard-page';
 import HistoryPage from './pages/history-page';
 import SettingPage from './pages/setting-page';
+import AuthPage from './pages/auth-page';
+import AuthLayout from './components/ui/auth/auth-layout';
 
 export const routes = createBrowserRouter([
   {
@@ -31,5 +33,10 @@ export const routes = createBrowserRouter([
         element: <SettingPage />,
       },
     ],
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [{index: true, element: <AuthPage />}],
   },
 ]);
