@@ -14,9 +14,9 @@ export default function AppSidebar({toggleSidebar, sidebar}: AppSideBarProps) {
       id="sidebar"
       role="navigation"
       className={cn(
-        'h-dvh pb-5 px-6 bg-white dark:bg-slate-800 divide-y divide-slate-200 border-l border-slate-200 dark:border-0 dark:divide-white/25 transition-all duration-300 z-50 sticky top-0 left-0 overflow-hidden',
+        'h-dvh pb-5 px-6 bg-white dark:bg-slate-800 absolute divide-y divide-slate-200 border-l border-slate-200 dark:border-0 dark:divide-white/25 transition-all duration-300 z-60 md:sticky top-0 left-0 overflow-hidden',
         sidebar
-          ? 'translate-x-0 w-full md:w-[270px]'
+          ? 'translate-x-0 w-full md:w-[270px] '
           : '-translate-x-full w-0 p-0 border-0'
       )}
     >
