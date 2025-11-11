@@ -9,7 +9,11 @@ const menuItems = [
   {label: '설정', icon: Setting, path: '/my-app/setting'},
 ];
 
-export default function SidebarMenuList() {
+export default function SidebarMenuList({
+  toggleSidebar,
+}: {
+  toggleSidebar: () => void;
+}) {
   return (
     <nav
       className="flex flex-col w-full flex-1 py-5 gap-2"
@@ -17,6 +21,7 @@ export default function SidebarMenuList() {
     >
       {menuItems.map((item) => (
         <SidebarMenuButton
+          onClick={toggleSidebar}
           key={item.path}
           label={item.label}
           icon={item.icon}

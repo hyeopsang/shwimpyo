@@ -1,8 +1,8 @@
 import SidebarTrigger from '@/shared/sidebar-trigger';
-interface SidebarHeaderProps {
+type SidebarHeaderProps = {
   toggleSidebar: () => void;
   sidebar: boolean;
-}
+};
 export default function SidebarHeader({
   toggleSidebar,
   sidebar,

@@ -4,7 +4,7 @@ import AppSidebar from '@/feature/sidebar/app-sidebar';
 import Header from '@/components/header';
 
 export default function MyAppLayout() {
-  const [sidebar, setSidebar] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   const toggleSidebar = () => {
     setSidebar((prev) => !prev);
@@ -16,7 +16,6 @@ export default function MyAppLayout() {
         <AppSidebar toggleSidebar={toggleSidebar} sidebar={sidebar} />
         <main className="flex-1 w-full h-full mx-auto border-x border-slate-200 dark:border-0">
           <Header toggleSidebar={toggleSidebar} sidebar={sidebar} />
-
           <Outlet />
         </main>
       </div>

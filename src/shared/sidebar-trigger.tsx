@@ -1,4 +1,5 @@
 import TriggerIcon from '@/assets/out.svg?react';
+import {cn} from '@/utils/style';
 
 interface SidebarTriggerProps {
   isOpen: boolean;
@@ -19,9 +20,10 @@ export default function SidebarTrigger({
       <TriggerIcon
         width={24}
         height={24}
-        className={`transition-transform duration-300 ${
-          isOpen ? 'rotate-180' : 'rotate-0'
-        } text-slate-900 dark:text-white`}
+        className={cn(
+          'text-slate-900 dark:text-white',
+          isOpen ? 'rotate-0' : 'rotate-180'
+        )}
       />
     </button>
   );
