@@ -4,16 +4,12 @@ import History from '@/assets/history.svg?react';
 import Setting from '@/assets/setting.svg?react';
 
 const menuItems = [
-  {label: '대시보드', icon: Dashboard, path: '/my-app/dashboard'},
+  {label: '대시보드', icon: Dashboard, path: '/my-app/calendar'},
   {label: '히스토리', icon: History, path: '/my-app/history'},
   {label: '설정', icon: Setting, path: '/my-app/setting'},
 ];
 
-export default function SidebarMenuList({
-  toggleSidebar,
-}: {
-  toggleSidebar: () => void;
-}) {
+export default function SidebarMenuList() {
   return (
     <nav
       className="flex flex-col w-full flex-1 py-6 gap-2"
@@ -21,7 +17,6 @@ export default function SidebarMenuList({
     >
       {menuItems.map((item) => (
         <SidebarMenuButton
-          onClick={toggleSidebar}
           key={item.path}
           label={item.label}
           icon={item.icon}

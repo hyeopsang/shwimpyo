@@ -14,7 +14,7 @@ export default function AppSidebar({toggleSidebar, sidebar}: AppSideBarProps) {
       id="sidebar"
       role="navigation"
       className={cn(
-        'h-dvh pb-5 pl-6 pr-4 bg-white dark:bg-slate-800 absolute  border-l border-slate-200 dark:border-0 dark:divide-white/25 z-60 md:sticky top-0 left-0 overflow-hidden',
+        'h-dvh pb-5 pl-6 pr-4 rounded-tr-4xl bg-white dark:bg-slate-800 absolute shadow-lg z-60 md:sticky top-0 left-0 overflow-hidden',
         sidebar
           ? 'translate-x-0 w-[270px] transition-all duration-300'
           : '-translate-x-full w-0 p-0 border-0'
@@ -22,12 +22,12 @@ export default function AppSidebar({toggleSidebar, sidebar}: AppSideBarProps) {
     >
       <div
         className={cn(
-          'w-full h-full flex flex-col divide-y divide-slate-200',
+          'w-full h-full flex flex-col divide-y divide-slate-200 dark:divide-slate-600',
           !sidebar && 'opacity-0 pointer-events-none'
         )}
       >
         <SidebarHeader toggleSidebar={toggleSidebar} sidebar={sidebar} />
-        <SidebarMenuList toggleSidebar={toggleSidebar} />
+        <SidebarMenuList />
         <SidebarFooter />
       </div>
     </aside>

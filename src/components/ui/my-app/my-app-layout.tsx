@@ -14,7 +14,7 @@ export default function MyAppLayout() {
     <div className="w-full flex min-h-screen bg-[#FAFAFA] dark:bg-slate-900">
       <div className="max-w-[1200px] w-full h-dvh flex mx-auto overflow-hidden">
         <AppSidebar toggleSidebar={toggleSidebar} sidebar={sidebar} />
-        <main className="flex-1 w-full h-full mx-auto border-x border-slate-200 dark:border-0">
+        <main className="flex-1 w-full h-full mx-auto">
           <Header toggleSidebar={toggleSidebar} sidebar={sidebar} />
           <Outlet />
         </main>

@@ -23,8 +23,11 @@ export default function SidebarMenuButton({
       aria-current={isActive ? 'page' : undefined}
       onClick={onClick}
       className={cn(
-        'w-full px-3 py-2 flex items-center gap-5 rounded-md hover:bg-slate-100 active:bg-slate-300 text-slate-900 dark:text-white dark:hover:bg-slate-100/25 dark:active:bg-slate-100/75',
-        {'bg-slate-100 dark:bg-slate-100/25': isActive}
+        'w-full px-3 py-2 flex items-center gap-5 rounded-md hover:bg-slate-100 active:scale-95 active:bg-slate-200 active:text-slate-500 text-slate-400 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-slate-300 dark:active:bg-slate-400 dark:active:text-slate-200',
+        {
+          'bg-slate-100 dark:bg-slate-500 dark:text-slate-300 text-slate-500':
+            isActive,
+        }
       )}
       {...props}
     >

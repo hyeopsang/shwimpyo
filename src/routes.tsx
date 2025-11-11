@@ -16,10 +16,10 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="dashboard" replace />,
+        element: <Navigate to="calendar" replace />,
       },
       {
-        path: 'dashboard',
+        path: 'calendar',
         element: <DashboardPage />,
       },
       {
