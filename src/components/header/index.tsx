@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import {cn} from '@/utils/style';
 import Add from '@/assets/add.svg?react';
 import DarkModeToggle from './dark-mode-toggle';
@@ -6,21 +7,33 @@ import SidebarTrigger from '@/shared/sidebar-trigger';
 interface HeaderProps {
   sidebar: boolean;
   toggleSidebar: () => void;
-  scrolled: boolean;
 }
 
-export default function Header({
-  sidebar,
-  toggleSidebar,
-  scrolled,
-}: HeaderProps) {
+export default function Header({sidebar, toggleSidebar}: HeaderProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const y = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(y > 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, {passive: true});
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <header
       className={cn(
         'sticky top-0 w-full h-fit py-3.5 transition-all duration-100 z-50',
-        scrolled
-          ? 'bg-[#FAFAFA]/75 backdrop-blur-[25px] dark:bg-slate-900/75'
-          : 'bg-[#FAFAFA] dark:bg-slate-900'
+        scrolled && 'backdrop-blur-[25px]'
       )}
     >
       <div

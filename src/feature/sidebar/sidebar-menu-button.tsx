@@ -19,12 +19,12 @@ export default function SidebarMenuButton({
       to={path}
       aria-current={isActive ? 'page' : undefined}
       className={cn(
-        'w-full px-2 py-1.5 flex items-center gap-5 rounded-md hover:bg-slate-100 active:bg-slate-100 text-slate-900 dark:text-white dark:hover:bg-slate-100/25',
+        'w-full px-4 py-2 flex items-center gap-5 rounded-md hover:bg-slate-100 active:bg-slate-100 text-slate-900 dark:text-white dark:hover:bg-slate-100/25',
         {'bg-slate-100 dark:bg-slate-100/25': isActive}
       )}
     >
       <Icon width={20} />
-      <span className="text-[14px] font-medium">{label}</span>
+      <span className="text-base font-medium">{label}</span>
     </Link>
   );
 }
