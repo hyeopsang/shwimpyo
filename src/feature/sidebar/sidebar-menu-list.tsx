@@ -5,7 +5,7 @@ import Setting from '@/assets/setting.svg?react';
 
 const menuItems = [
   {label: '대시보드', icon: Dashboard, path: '/my-app/calendar'},
-  {label: '히스토리', icon: History, path: '/my-app/history'},
+  {label: '마음기록', icon: History, path: '/my-app/log'},
   {label: '설정', icon: Setting, path: '/my-app/setting'},
 ];
 

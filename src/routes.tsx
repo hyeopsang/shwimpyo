@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: 'history',
+        path: 'log',
         element: <HistoryPage />,
       },
       {
